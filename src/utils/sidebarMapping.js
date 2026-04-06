@@ -28,6 +28,12 @@ const SidebarMapping = () => {
         icon: <img src={Users} alt='' />
       },
       {
+        id: 6,
+        path: "/student-experience",
+        name: "Experience Content",
+        icon: <img src={Blog} alt='' />
+      },
+      {
         id: 13,
         path: "/settings",
         name: "Settings",
@@ -69,6 +75,12 @@ const SidebarMapping = () => {
         id: 5,
         path: "/studentBlog",
         name: "Student Blogs",
+        icon: <img src={Blog} alt='' />
+      },
+      {
+        id: 6,
+        path: "/student-experience",
+        name: "Experience Content",
         icon: <img src={Blog} alt='' />
       },
       {

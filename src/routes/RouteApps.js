@@ -23,6 +23,7 @@ import Career from "../pages/careers"
 import University from "../pages/university"
 import Skills from "../pages/skills"
 import StudentBlog from "../pages/studentBlog"
+import StudentExperience from "../pages/studentExperience";
 
 const RouteApps = () => {
   const { isLoggedIn } = useContext(AppContext);
@@ -59,6 +60,7 @@ const RouteApps = () => {
                 <Route path="/university" element={<University />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/studentBlog" element={<StudentBlog />} />
+                <Route path="/student-experience" element={<StudentExperience />} />
             
                 <Route path='/settings'>
                   <Route index element={<Navigate to='general' replace />} />
