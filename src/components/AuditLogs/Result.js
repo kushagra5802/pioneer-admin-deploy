@@ -11,7 +11,7 @@ const Result = () => {
       <ToastContainer />
 
       <div className='pageTitle flex items-center justify-between pr-5 heading-sec pl-4'> 
-          <h1 className='heading-text'>Audit Logs Dashboard</h1>
+          <h1 className='heading-text'>Audit Logs</h1>
       </div>
 
       <div className='constituency-map'>
