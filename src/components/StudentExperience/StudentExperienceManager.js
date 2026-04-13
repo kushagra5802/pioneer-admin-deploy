@@ -7,6 +7,15 @@ import PageHeader from "../PageHeader";
 import useAxiosInstance from "../../lib/useAxiosInstance";
 import ExperienceContentForm from "./ExperienceContentForm";
 
+const stripHtml = (value = "") =>
+  String(value)
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const truncateText = (value = "", maxLength = 180) =>
+  value.length > maxLength ? `${value.slice(0, maxLength).trim()}...` : value;
+
 const scopeFilters = [
   { value: "", label: "All Modules" },
   { value: "WELCOME", label: "Welcome" },
@@ -179,6 +188,11 @@ export default function StudentExperienceManager() {
                       <h2 className="mt-4 text-2xl font-bold text-slate-900">
                         {item.title}
                       </h2>
+                      {item.subtitle && (
+                        <p className="mt-2 text-sm font-medium text-slate-500">
+                          {item.subtitle}
+                        </p>
+                      )}
                     </div>
 
                     <div className="flex gap-2">
@@ -203,8 +217,17 @@ export default function StudentExperienceManager() {
                   </div>
 
                   <p className="mt-4 text-sm leading-6 text-slate-600">
-                    {item.description || "No description provided."}
+                    {truncateText(
+                      stripHtml(item.description) || "No description provided."
+                    )}
                   </p>
+
+                  {item.mediaFiles?.length > 0 && (
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+                      {item.mediaFiles.length} media file
+                      {item.mediaFiles.length > 1 ? "s" : ""} attached
+                    </p>
+                  )}
 
                   <div className="mt-5 grid gap-3 rounded-3xl bg-slate-50 p-5 text-sm text-slate-700 md:grid-cols-2">
                     <p>
